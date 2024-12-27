@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maktab CRM - Guruh ma'lumotlari</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Maktab CRM</div>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Bosh sahifa</a></li>
+                <li><a href="students-list.html"><i class="fas fa-user-graduate"></i> O'quvchilar</a></li>
+                <li><a href="teachers-list.html"><i class="fas fa-chalkboard-teacher"></i> O'qituvchilar</a></li>
+                <li><a href="groups-list.html" class="active"><i class="fas fa-users"></i> Guruhlar</a></li>
+                <li><a href="subjects-list.html"><i class="fas fa-book"></i> Fanlar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Guruh ma'lumotlari</h1>
+        <div class="group-details">
+            <div class="group-info">
+                <h2>Guruh 1</h2>
+                <p>ID: 001</p>
+                <p>O'quvchilar soni: 30</p>
+                <p>Sinf rahbari: O'qituvchi A</p>
+            </div>
+            <div class="group-students">
+                <h3>O'quvchilar ro'yxati</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Ism</th>
+                            <th>Familiya</th>
+                            <th>Amallar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Ali</td>
+                            <td>Valiyev</td>
+                            <td><button class="btn btn-info">Ko'rish</button></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Oyna</td>
+                            <td>Yusupova</td>
+                            <td><button class="btn btn-info">Ko'rish</button></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Jamshid</td>
+                            <td>Husanov</td>
+                            <td><button class="btn btn-info">Ko'rish</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="actions">
+            <a href="group-update.html" class="btn"><i class="fas fa-edit"></i> Tahrirlash</a>
+            <a href="" class="btn btn-danger"><i class="fas fa-trash"></i> O'chirish</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Maktab CRM. Barcha huquqlar himoyalangan.</p>
+    </footer>
+</body>
+</html>

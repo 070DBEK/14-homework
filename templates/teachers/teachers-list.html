@@ -1,0 +1,16 @@
+
+{% extends 'base.html' %}
+
+{% block title %} Maktab CRM - Ustozlar ro'yhati {% endblock %}
+
+{% block content %}
+
+          <h1>O'qituvchilar Ro'yxati</h1>
+    <ul>
+        {% for teacher in teachers %}
+            <li>{{ teacher.first_name }} {{ teacher.last_name }}</li>
+        {% empty %}
+            <li>O'qituvchilar mavjud emas.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,27 @@
+
+{% extends 'base.html' %}
+
+{% block title %} Maktab CRM - Ustoz ma'lumoti {% endblock %}
+
+{% block content %}
+
+        <h1>O'qituvchi ma'lumotlari</h1>
+        <div class="teacher-details">
+            <div class="teacher-info">
+                <!-- Static Teacher Image -->
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlTGzvC2GTQkEWZd26qymlZLNo7OfS1LwH5w&s" alt="O'qituvchi rasmi" class="teacher-image">
+                <h2>Jahongir Toshmatov</h2>
+                <p>ID: <span>001</span></p>
+                <p>Fan: <span>Matematika</span></p>
+                <p>Telefon: <span>+998 99 123 45 67</span></p>
+                <p>Email: <span>jahongir.toshmatov@mail.com</span></p>
+                <p>Ish tajribasi: <span>10 yil</span></p>
+            </div>
+        </div>
+
+        <div class="actions">
+            <a href="{% url 'teachers:update' %}" class="btn"><i class="fas fa-edit"></i> Tahrirlash</a>
+            <a href="{% url 'teachers:list' %}" class="btn btn-danger"><i class="fas fa-trash"></i> O'chirish</a>
+        </div>
+
+{% endblock %}

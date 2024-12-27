@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maktab CRM - O'quvchi ma'lumotlari</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Maktab CRM</div>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Bosh sahifa</a></li>
+                <li><a href="students-list.html" class="active"><i class="fas fa-user-graduate"></i> O'quvchilar</a></li>
+                <li><a href="teachers-list.html"><i class="fas fa-chalkboard-teacher"></i> O'qituvchilar</a></li>
+                <li><a href="groups-list.html"><i class="fas fa-users"></i> Guruhlar</a></li>
+                <li><a href="subjects-list.html"><i class="fas fa-book"></i> Fanlar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>O'quvchi ma'lumotlari</h1>
+        <div class="student-details">
+            <div class="student-info">
+                <!-- Static content for a student's details -->
+                <img src="https://st5.depositphotos.com/23404642/73149/v/450/depositphotos_731494074-stock-illustration-portrait-smiling-teen-student-girl.jpg" alt="O'quvchi rasmi" id="studentImage" class="student-image">
+                <h2 id="studentName">Nilufar Asqarova</h2>
+                <p>ID: <span id="studentId">67890</span></p>
+                <p>Guruh: <span id="studentGroup">9-B</span></p>
+                <p>Tug'ilgan sana: <span id="studentBirthDate">2007-05-20</span></p>
+                <p>Telefon: <span id="studentPhone">+998 91 456 78 90</span></p>
+                <p>Manzil: <span id="studentAddress">Samarqand, Registon</span></p>
+            </div>
+        </div>
+        <div class="actions">
+            <a href="student-update.html" class="btn"><i class="fas fa-edit"></i> Tahrirlash</a>
+            <a href="delete-student.html" id="deleteStudent" class="btn btn-danger"><i class="fas fa-trash"></i> O'chirish</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Maktab CRM. Barcha huquqlar himoyalangan.</p>
+    </footer>
+
+</body>
+</html>

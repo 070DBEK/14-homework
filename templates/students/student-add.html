@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maktab CRM - O'quvchi yaratish</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Maktab CRM</div>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Bosh sahifa</a></li>
+                <li><a href="students-list.html" class="active"><i class="fas fa-user-graduate"></i> O'quvchilar</a></li>
+                <li><a href="teachers-list.html"><i class="fas fa-chalkboard-teacher"></i> O'qituvchilar</a></li>
+                <li><a href="groups-list.html"><i class="fas fa-users"></i> Guruhlar</a></li>
+                <li><a href="subjects-list.html"><i class="fas fa-book"></i> Fanlar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>O'quvchi yaratish</h1>
+        <form id="createStudentForm">
+            <div class="form-group">
+                <label for="fullName">To'liq ism:</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Jasurbek Ismoilov" required>
+            </div>
+            <div class="form-group">
+                <label for="group">Guruh:</label>
+                <select id="group" name="group" required>
+                    <option value="">Guruhni tanlang</option>
+                    <option value="Guruh 1">Guruh 1</option>
+                    <option value="Guruh 2">Guruh 2</option>
+                    <option value="Guruh 3">Guruh 3</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dob">Tug'ilgan sana:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Telefon:</label>
+                <input type="tel" id="phone" name="phone" placeholder="+998 90 123 45 67" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Manzil:</label>
+                <input type="text" id="address" name="address" placeholder="Tashkent, Yunusobod" required>
+            </div>
+            <div class="form-group">
+                <label for="photo">Rasm:</label>
+                <input type="file" id="photo" name="photo" accept="image/*" required>
+            </div>
+            <div class="actions">
+                <button type="submit" class="btn"><i class="fas fa-save"></i> Saqlash</button>
+                <a href="students-list.html" class="btn btn-secondary"><i class="fas fa-times"></i> Bekor qilish</a>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Maktab CRM. Barcha huquqlar himoyalangan.</p>
+    </footer>
+</body>
+</html>

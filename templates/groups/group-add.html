@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maktab CRM - Guruh yaratish</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Maktab CRM</div>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Bosh sahifa</a></li>
+                <li><a href="students-list.html"><i class="fas fa-user-graduate"></i> O'quvchilar</a></li>
+                <li><a href="teachers-list.html"><i class="fas fa-chalkboard-teacher"></i> O'qituvchilar</a></li>
+                <li><a href="groups-list.html" class="active"><i class="fas fa-users"></i> Guruhlar</a></li>
+                <li><a href="subjects-list.html"><i class="fas fa-book"></i> Fanlar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Guruh yaratish</h1>
+        <form id="createGroupForm">
+            <div class="form-group">
+                <label for="groupName">Guruh nomi:</label>
+                <input type="text" id="groupName" name="groupName" placeholder="Guruh nomini kiriting" required>
+            </div>
+            <div class="form-group">
+                <label for="classTeacher">Sinf rahbari:</label>
+                <select id="classTeacher" name="classTeacher" required>
+                    <option value="">Sinf rahbarini tanlang</option>
+                    <option value="teacher1">O'qituvchi A</option>
+                    <option value="teacher2">O'qituvchi B</option>
+                    <option value="teacher3">O'qituvchi C</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="students">O'quvchilar:</label>
+                <select id="students" name="students" multiple required>
+                    <option value="student1">Ali Valiyev</option>
+                    <option value="student2">Oyna Yusupova</option>
+                    <option value="student3">Jamshid Husanov</option>
+                    <option value="student4">Nodira Abdullayeva</option>
+                    <option value="student5">Zafarbek Tursunov</option>
+                </select>
+            </div>
+            <div class="actions">
+                <a href="groups-list.html" class="btn"><i class="fas fa-save"></i> Saqlash</a>
+                <a href="groups-list.html" class="btn btn-secondary"><i class="fas fa-times"></i> Bekor qilish</a>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Maktab CRM. Barcha huquqlar himoyalangan.</p>
+    </footer>
+</body>
+</html>

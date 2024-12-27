@@ -1,0 +1,67 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Maktab CRM - Fanlar ro'yxati{% endblock %}
+
+{% block content %}
+
+
+        <h1>Fan ma'lumotlari</h1>
+        <div class="subject-details">
+            <div class="subject-info">
+                <h2>Matematika</h2>
+                <p>ID: 1</p>
+                <p>O'qituvchilar soni: 3</p>
+            </div>
+            <div class="subject-teachers">
+                <h3>O'qituvchilar ro'yxati</h3>
+                <table id="teachersTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Ism</th>
+                            <th>Familiya</th>
+                            <th>Amallar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Ali</td>
+                            <td>Valiyev</td>
+                            <td>
+                                <a href="teacher-detail.html?id=1" class="btn btn-sm"><i class="fas fa-eye"></i> Ko'rish</a>
+                                <a href="teacher-update.html?id=1" class="btn btn-sm"><i class="fas fa-edit"></i> Tahrirlash</a>
+                                <a href="teacher-delete.html?id=1" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> O'chirish</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Laylo</td>
+                            <td>Rahmatova</td>
+                            <td>
+                                <a href="teacher-detail.html?id=2" class="btn btn-sm"><i class="fas fa-eye"></i> Ko'rish</a>
+                                <a href="teacher-update.html?id=2" class="btn btn-sm"><i class="fas fa-edit"></i> Tahrirlash</a>
+                                <a href="teacher-delete.html?id=2" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> O'chirish</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Jahongir</td>
+                            <td>Qodirov</td>
+                            <td>
+                                <a href="teacher-detail.html?id=3" class="btn btn-sm"><i class="fas fa-eye"></i> Ko'rish</a>
+                                <a href="teacher-update.html?id=3" class="btn btn-sm"><i class="fas fa-edit"></i> Tahrirlash</a>
+                                <a href="teacher-delete.html?id=3" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> O'chirish</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="actions">
+            <a href="subject-update.html" class="btn"><i class="fas fa-edit"></i> Tahrirlash</a>
+            <a href="subject-delete.html" class="btn btn-danger"><i class="fas fa-trash"></i> O'chirish</a>
+        </div>
+
+{% endblock %}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maktab CRM - Guruhlar ro'yxati</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Maktab CRM</div>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Bosh sahifa</a></li>
+                <li><a href="students-list.html"><i class="fas fa-user-graduate"></i> O'quvchilar</a></li>
+                <li><a href="teachers-list.html"><i class="fas fa-chalkboard-teacher"></i> O'qituvchilar</a></li>
+                <li><a href="groups-list.html" class="active"><i class="fas fa-users"></i> Guruhlar</a></li>
+                <li><a href="subjects-list.html"><i class="fas fa-book"></i> Fanlar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Guruhlar ro'yxati</h1>
+        <div class="actions">
+            <a href="group-add.html" class="btn"><i class="fas fa-plus"></i> Yangi guruh qo'shish</a>
+            <input type="text" id="searchGroup" placeholder="Guruh qidirish" class="search-input">
+        </div>
+        <table id="groupsTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Guruh nomi</th>
+                    <th>O'quvchilar soni</th>
+                    <th>Sinf rahbari</th>
+                    <th>Amallar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>9-A</td>
+                    <td>25</td>
+                    <td>Dilshod Umarov</td>
+                    <td>
+                        <a href="group-detail.html?id=1" class="btn btn-sm"><i class="fas fa-eye"></i> Ko'rish</a>
+                        <a href="group-update.html?id=1" class="btn btn-sm"><i class="fas fa-edit"></i> Tahrirlash</a>
+                        <a href="#" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> O'chirish</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>10-B</td>
+                    <td>22</td>
+                    <td>Nilufar Azizova</td>
+                    <td>
+                        <a href="group-detail.html?id=2" class="btn btn-sm"><i class="fas fa-eye"></i> Ko'rish</a>
+                        <a href="group-update.html?id=2" class="btn btn-sm"><i class="fas fa-edit"></i> Tahrirlash</a>
+                        <a href="#" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> O'chirish</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>11-A</td>
+                    <td>20</td>
+                    <td>Akmal Saidov</td>
+                    <td>
+                        <a href="group-detail.html?id=3" class="btn btn-sm"><i class="fas fa-eye"></i> Ko'rish</a>
+                        <a href="group-update.html?id=3" class="btn btn-sm"><i class="fas fa-edit"></i> Tahrirlash</a>
+                        <a href="#" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> O'chirish</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="pagination">
+            <a href="#" class="btn btn-secondary"><i class="fas fa-chevron-left"></i> Oldingi</a>
+            <span>1</span>
+            <a href="#" class="btn btn-secondary">Keyingi <i class="fas fa-chevron-right"></i></a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Maktab CRM. Barcha huquqlar himoyalangan.</p>
+    </footer>
+</body>
+</html>
