@@ -12,7 +12,7 @@
             <div class="card">
                 <h2>O'quvchilar</h2>
                 <p>Jami: <span id="studentCount">0</span></p>
-                <a href="students-list.html" class="btn">Batafsil</a>
+                <a href="{% url 'students:list' %}" class="btn">Batafsil</a>
             </div>
             <div class="card">
                 <h2>O'qituvchilar</h2>
@@ -22,7 +22,7 @@
             <div class="card">
                 <h2>Guruhlar</h2>
                 <p>Jami: <span id="groupCount">0</span></p>
-                <a href="groups-list.html" class="btn">Batafsil</a>
+                <a href="{% url 'groups:list' %}" class="btn">Batafsil</a>
             </div>
             <div class="card">
                 <h2>Fanlar</h2>

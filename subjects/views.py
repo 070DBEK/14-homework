@@ -41,8 +41,6 @@ def subject_detail(request, pk):
 
 def subject_delete(request, pk):
     subject = get_object_or_404(Subject, pk=pk)
-    if request.method == "POST":
-        subject.delete()
-        return redirect('subjects:list')
-    ctx = {'subject': subject}
-    return render(request, 'subjects/subject-delete.html', ctx)
+    subject.delete()
+    return redirect('subjects:list')
+

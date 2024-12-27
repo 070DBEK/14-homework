@@ -26,6 +26,8 @@ urlpatterns = [
     path('', home, name = 'home'),
     path('subjects/', include('subjects.urls')),
     path('teachers/', include('teachers.urls')),
+    path('groups/', include('groups.urls')),
+    path('students/', include('students.urls')),
 ]
 
 
