@@ -14,14 +14,16 @@ class Student(BaseModel):
 
 
     def __str__(self):
-        return self.full_name
+        return f"{self.full_name}"
 
 
     def get_detail_url(self):
         return reverse('students:detail', args=[self.pk])
 
+
     def get_delete_url(self):
         return reverse('students:delete', args=[self.pk])
+
 
     def get_update_url(self):
         return reverse('students:update', args=[self.pk])

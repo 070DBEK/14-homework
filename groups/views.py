@@ -12,12 +12,10 @@ def group_create(request):
     if request.method == 'POST':
         name = request.POST.get('name')
         teacher = request.POST.get('teacher')
-        students = request.POST.get('students')
-        if name and teacher and students:
+        if name and teacher:
             Group.objects.create(
                 name=name,
                 teacher=teacher,
-                students=students,
             )
             return redirect('groups:list')
     return render(request, 'groups/group-add.html')
@@ -28,11 +26,9 @@ def update_group(request, pk):
     if request.method == 'POST':
         name = request.POST.get('name')
         teacher = request.POST.get('teacher')
-        students = request.POST.get('students')
         if name:
             group.name = name
             group.teacher = teacher
-            group.students = students
             group.save()
             return redirect(group.get_detail_url())
     ctx = {'group': group}

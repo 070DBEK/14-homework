@@ -1,5 +1,5 @@
-from django.db.models import CASCADE
 from django.db import models
+from django.db.models import CASCADE
 from subjects.models import BaseModel, Subject
 from django.urls import reverse
 
@@ -11,11 +11,11 @@ class Teacher(BaseModel):
     email = models.EmailField(unique=True)
     experience = models.PositiveIntegerField()
     image = models.ImageField(upload_to='teachers_images/')
-    subject = models.ForeignKey(Subject, on_delete=CASCADE, related_name = 'teachers')
+    subject = models.ForeignKey(Subject, on_delete=CASCADE, related_name='teachers')
 
 
     def __str__(self):
-        return self.first_name, self.last_name
+        return f"{self.first_name} {self.last_name}"
 
 
     def get_detail_url(self):

@@ -12,11 +12,14 @@ class Group(BaseModel):
     def __str__(self):
         return self.name
 
+
     def get_detail_url(self):
         return reverse('groups:detail', args=[self.pk])
 
+
     def get_update_url(self):
         return reverse('groups:update', args=[self.pk])
+
 
     def get_delete_url(self):
         return reverse('groups:delete', args=[self.pk])
