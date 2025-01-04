@@ -1,55 +1,42 @@
-
 {% extends 'base.html' %}
 
-{% block title %} Maktab CRM - Guruh ma'lumoti {% endblock %}
+{% block title %}Maktab CRM - Guruh ma'lumotlari{% endblock %}
 
 {% block content %}
 
-        <h1>Guruh ma'lumotlari</h1>
-        <div class="group-details">
-            <div class="group-info">
-                <h2>Guruh 1</h2>
-                <p>ID: 001</p>
-                <p>O'quvchilar soni: 30</p>
-                <p>Sinf rahbari: O'qituvchi A</p>
-            </div>
-            <div class="group-students">
-                <h3>O'quvchilar ro'yxati</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Ism</th>
-                            <th>Familiya</th>
-                            <th>Amallar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Ali</td>
-                            <td>Valiyev</td>
-                            <td><button class="btn btn-info">Ko'rish</button></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Oyna</td>
-                            <td>Yusupova</td>
-                            <td><button class="btn btn-info">Ko'rish</button></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Jamshid</td>
-                            <td>Husanov</td>
-                            <td><button class="btn btn-info">Ko'rish</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+    <h1>Guruh ma'lumotlari</h1>
+    <div class="group-details">
+        <div class="group-info">
+            <h2>{{ group.name }}</h2>
+            <p>ID: {{ group.id }}</p>
+            <p>O'quvchilar soni: {{ group.students.count }}</p>
+            <p>Sinf rahbari: {{ group.teacher.first_name }} {{ group.teacher.last_name }}</p>
         </div>
-        <div class="actions">
-            <a href="group-update.html" class="btn"><i class="fas fa-edit"></i> Tahrirlash</a>
-            <a href="" class="btn btn-danger"><i class="fas fa-trash"></i> O'chirish</a>
+        <div class="group-students">
+            <h3>O'quvchilar ro'yxati</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ism</th>
+                        <th>Familiya</th>
+                        <th>Amallar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                        <tr>
+                            <td>{{ student.id }}</td>
+                            <td>{{ student.full_name }}</td>
+                            <td><button class="btn btn-info">Ko'rish</button></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
-
+    </div>
+    <div class="actions">
+        <a href="group-update.html" class="btn"><i class="fas fa-edit"></i> Tahrirlash</a>
+        <a href="" class="btn btn-danger"><i class="fas fa-trash"></i> O'chirish</a>
+    </div>
 {% endblock %}

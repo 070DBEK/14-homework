@@ -1,34 +1,29 @@
-
 {% extends 'base.html' %}
 
-{% block title %} Maktab CRM - Bosh sahifa {% endblock %}
+{% block title %}Maktab CRM Boshqaruv Paneli{% endblock %}
 
 {% block content %}
-
-
-
-        <h1>Maktab CRM Boshqaruv Paneli</h1>
-        <div class="dashboard-grid">
-            <div class="card">
-                <h2>O'quvchilar</h2>
-                <p>Jami: <span id="studentCount">0</span></p>
-                <a href="{% url 'students:list' %}" class="btn">Batafsil</a>
-            </div>
-            <div class="card">
-                <h2>O'qituvchilar</h2>
-                <p>Jami: <span id="teacherCount">0</span></p>
-                <a href="{% url 'teachers:list' %}" class="btn">Batafsil</a>
-            </div>
-            <div class="card">
-                <h2>Guruhlar</h2>
-                <p>Jami: <span id="groupCount">0</span></p>
-                <a href="{% url 'groups:list' %}" class="btn">Batafsil</a>
-            </div>
-            <div class="card">
-                <h2>Fanlar</h2>
-                <p>Jami: <span id="subjectCount">0</span></p>
-                <a href="{% url 'subjects:list' %}" class="btn">Batafsil</a>
-            </div>
+    <h1>Maktab CRM Boshqaruv Paneli</h1>
+    <div class="dashboard-grid">
+        <div class="card">
+            <h2>O'quvchilar</h2>
+            <p>Jami: <span id="studentCount">{{ students_count }}</span></p>
+            <a href="{% url 'students:list' %}" class="btn">Batafsil</a>
         </div>
-
+        <div class="card">
+            <h2>O'qituvchilar</h2>
+            <p>Jami: <span id="teacherCount">{{ teachers_count }}</span></p>
+            <a href="{% url 'teachers:list' %}" class="btn">Batafsil</a>
+        </div>
+        <div class="card">
+            <h2>Guruhlar</h2>
+            <p>Jami: <span id="groupCount">{{ group_count }}</span></p>
+            <a href="{% url 'groups:list' %}" class="btn">Batafsil</a>
+        </div>
+        <div class="card">
+            <h2>Fanlar</h2>
+            <p>Jami: <span id="subjectCount">{{ subjects_count }}</span></p>
+            <a href="{% url 'subjects:list' %}" class="btn">Batafsil</a>
+        </div>
+    </div>
 {% endblock %}

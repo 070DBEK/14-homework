@@ -1,29 +1,15 @@
 from django.db import models
 from groups.models import Group
-from subjects.models import BaseModel
-from django.urls import reverse
 
 
-class Student(BaseModel):
+class Student(models.Model):
     full_name = models.CharField(max_length=150)
-    group = models.ManyToManyField(Group, related_name = 'groups')
-    date_of_birth = models.DateTimeField()
-    phone_number = models.CharField(max_length=25)
-    location = models.CharField(max_length=250)
-    image = models.FileField()
+    date_of_birth = models.DateField()
+    phone_number = models.CharField(max_length=15)
+    address = models.TextField()
+    photo = models.ImageField(upload_to='students-images/', blank=True, null=True)
+    group = models.ManyToManyField(Group, blank=True, related_name='student_groups')
 
 
     def __str__(self):
-        return f"{self.full_name}"
-
-
-    def get_detail_url(self):
-        return reverse('students:detail', args=[self.pk])
-
-
-    def get_delete_url(self):
-        return reverse('students:delete', args=[self.pk])
-
-
-    def get_update_url(self):
-        return reverse('students:update', args=[self.pk])
+        return self.full_name

@@ -1,29 +1,24 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
-
+<html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maktab CRM - Fan ma'lumotlari</title>
+    <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
-    <header class="glass-effect">
-       {# NAV #}
-       {% include 'includes/nav.html' %}
-    </header>
+    {# HEADER #}
+    {% include 'includes/header.html' %}
 
     <main>
         {% block content %}{% endblock %}
     </main>
 
-        {# FOOTER #}
-        {% include 'includes/footer.html' %}
+    {# FOOTER #}
+    {% include 'includes/footer.html' %}
 
-    <!--script src="script.js"></script-->
-
+    <script src="app.js"></script>
 </body>
 </html>

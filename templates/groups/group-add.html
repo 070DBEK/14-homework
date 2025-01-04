@@ -1,39 +1,47 @@
-
 {% extends 'base.html' %}
 
-{% block title %}Maktab CRM - Talabalar ro'yxati{% endblock %}
+{% block title %}Maktab CRM - Guruh yaratish{% endblock %}
 
 {% block content %}
 
-  <h1>Talabalar ro'yxati</h1>
-  <a href="{% url 'students:add' %}" class="btn btn-primary">Talaba qo'shish</a>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Rasm</th>
-        <th>To'liq ismi</th>
-        <th>Guruh</th>
-        <th>Telefon</th>
-        <th>Amallar</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for student in students %}
-      <tr>
-        <td>{{ forloop.counter }}</td>
-        <td><img src="{{ student.image.url }}" alt="{{ student.full_name }}" style="width: 50px; height: 50px;"></td>
-        <td>{{ student.full_name }}</td>
-        <td>{{ student.group.group_name }}</td>
-        <td>{{ student.phone_number }}</td>
-        <td>
-          <a href="{% url 'students:detail' student.id %}" class="btn btn-info btn-sm">Ko'rish</a>
-          <a href="{% url 'students:update' student.id %}" class="btn btn-warning btn-sm">Tahrirlash</a>
-          <a href="{% url 'students:delete' student.id %}" class="btn btn-danger btn-sm" onclick="return confirm('Haqiqatan ham o'chirmoqchimisiz?');">O'chirish</a>
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+<h1>Guruh yaratish</h1>
+<form id="createGroupForm" method="post">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="name">Guruh nomi:</label>
+        <input type="text" id="name" name="name" placeholder="Guruh nomini kiriting" required>
+    </div>
+
+    <div class="form-group">
+        <label for="classTeacher">Sinf rahbari:</label>
+        <select id="classTeacher" name="teacher" required>
+            <option value="">Sinf rahbarini tanlang</option>
+            {% for teacher in teachers %}
+                <option value="{{ teacher.id }}">
+                    {{ teacher.first_name }} {{ teacher.last_name }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="students">O'quvchilar (tanlov ixtiyoriy):</label>
+        <select id="students" name="students" multiple>
+            {% if students %}
+                {% for student in students %}
+                    <option value="{{ student.id }}">{{ student.full_name }}</option>
+                {% endfor %}
+            {% else %}
+                <option value="" disabled>O'quvchilar ro'yxati bo'sh</option>
+            {% endif %}
+        </select>
+    </div>
+
+    <div class="actions">
+        <button type="submit" class="btn"><i class="fas fa-save"></i> Saqlash</button>
+        <a href="{% url 'groups:list' %}" class="btn btn-secondary"><i class="fas fa-times"></i> Bekor qilish</a>
+    </div>
+</form>
 
 {% endblock %}

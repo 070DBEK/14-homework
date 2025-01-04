@@ -6,9 +6,8 @@ app_name = 'groups'
 
 
 urlpatterns = [
-    path('list/', views.group_list, name='list'),
-    path('create/', views.group_create, name='create'),
-    path('update/<int:pk>/', views.update_group, name='update'),
-    path('detail/<int:pk>/', views.group_detail, name='detail'),
+    path('list/', views.groups_list, name='list'),
+    path('add/', views.create_group, name='create'),
+    path('detail/<int:group_id>/', views.group_detail, name='detail'),
     path('delete/<int:pk>/', views.group_delete, name='delete')
 ]
