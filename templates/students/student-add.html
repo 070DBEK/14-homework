@@ -1,23 +1,9 @@
+
 {% extends 'base.html' %}
 
-{% load static %}
-
-{% block title %}
-    {% if student %}
-        Maktab CRM - O'quvchi ma'lumotlarini yangilash
-    {% else %}
-        Maktab CRM - O'quvchi qo'shish
-    {% endif %}
-{% endblock %}
+{% block title %}Maktab CRM - Yangi o'quvchi qo'shish{% endblock %}
 
 {% block content %}
-<h1>
-    {% if student %}
-        Maktab CRM - O'quvchi ma'lumotlarini yangilash
-    {% else %}
-        Maktab CRM - O'quvchi qo'shish
-    {% endif %}
-</h1>
 
 <form id="createStudentForm" method="post" enctype="multipart/form-data">
     {% csrf_token %}
@@ -28,14 +14,15 @@
 
     <div class="form-group">
         <label for="group">Guruh:</label>
-        <select id="group" name="group" required>
+        <select id="group" name="group" multiple>
             <option value="">Guruhni tanlang</option>
-                {% for group in groups %}
-            <option value="{{ group.id }}" {% if student and student.groups.first.id == group.id %}selected{% endif %}>
-                {{ group.name }}
-            </option>
-    {% endfor %}
-</select>
+            {% for group in groups %}
+                <option value="{{ group.id }}"
+                        {% if student and group in student.group.all %}selected{% endif %}>
+                    {{ group.name }}
+                </option>
+            {% endfor %}
+        </select>
     </div>
 
     <div class="form-group">
@@ -45,7 +32,7 @@
 
     <div class="form-group">
         <label for="phone">Telefon:</label>
-        <input type="tel" id="phone" name="phone" value="{{ student.phone_number|default:'' }}" required>
+        <input type="text" id="phone" name="phone" value="{{ student.phone|default:'' }}" required>
     </div>
 
     <div class="form-group">

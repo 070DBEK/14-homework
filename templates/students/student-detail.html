@@ -1,22 +1,39 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}Maktab CRM - O'quvchi ma'lumotlari{% endblock %}
 
 {% block content %}
+
     <h1>O'quvchi ma'lumotlari</h1>
     <div class="student-details">
         <div class="student-info">
-            <img src="{{ student.photo.url }}" alt="O'quvchi rasmi" id="studentImage" class="student-image">
+
+            {% if student.photo %}
+                <img src="{{ student.photo.url }}" alt="O'quvchi rasmi" id="photo" class="student-image">
+            {% else %}
+                <img src="{% static 'students-images/default-photo.png' %}" alt="O'quvchi rasmi" id="photo" class="student-image">
+            {% endif %}
+
             <h2 id="studentName">{{ student.full_name }}</h2>
             <p>ID: <span id="studentId">{{ student.id }}</span></p>
-            <p>Guruh: <span id="studentGroup">{{ student.group.name }}</span></p>
+
+            <p>Guruh: <span id="studentGroup">
+                {% for group in student.group.all %}
+                    {{ group.name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </span></p>
+
             <p>Tug'ilgan sana: <span id="studentBirthDate">{{ student.date_of_birth }}</span></p>
-            <p>Telefon: <span id="studentPhone">{{ student.phone_number }}</span></p>
+            <p>Telefon: <span id="studentPhone">{{ student.phone }}</span></p>
             <p>Manzil: <span id="studentAddress">{{ student.address }}</span></p>
         </div>
     </div>
+
     <div class="actions">
-        <a href="student-update.html" class="btn"><i class="fas fa-edit"></i> Tahrirlash</a>
-        <a href="delete-student.html" id="deleteStudent" class="btn btn-danger"><i class="fas fa-trash"></i> O'chirish</a>
+        <a href="{% url 'students:edit' student.id %}" class="btn"><i class="fas fa-edit"></i> Tahrirlash</a>
+        <a href="{% url 'students:delete' student.id %}" id="deleteStudent" class="btn btn-danger"><i class="fas fa-trash"></i> O'chirish</a>
     </div>
+
 {% endblock %}

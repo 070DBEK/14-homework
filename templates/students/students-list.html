@@ -3,17 +3,19 @@
 {% block title %}Maktab CRM - O'quvchilar ro'yxati{% endblock %}
 
 {% block content %}
+
     <h1>O'quvchilar ro'yxati</h1>
     <div class="actions">
         <a href="{% url 'students:create' %}" class="btn"><i class="fas fa-plus"></i> Yangi o'quvchi qo'shish</a>
-        <input type="text" id="searchStudent" placeholder="O'quvchi qidirish" class="search-input">
+        <form method="GET" action="{% url 'students:list' %}" class="d-inline-block">
+            <input type="text" name="search" id="searchStudent" placeholder="O'quvchi qidirish" class="search-input" value="{{ request.GET.search|default:'' }}">
+        </form>
     </div>
     <table id="studentsTable">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Ism</th>
-                <th>Familiya</th>
                 <th>Guruh</th>
                 <th>Amallar</th>
             </tr>
@@ -23,23 +25,33 @@
                 <tr>
                     <td>{{ student.id }}</td>
                     <td>{{ student.full_name }}</td>
-                    <td>{{ student.group.name }}</td>
+                    <td>
+                        {% for group in student.group.all %}
+                            {{ group.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
                     <td>
                         <a href="{% url 'students:detail' student.id %}" class="btn btn-sm"><i class="fas fa-eye"></i> Ko'rish</a>
-                        <a href="student-update.html?id=1" class="btn btn-sm"><i class="fas fa-edit"></i> Tahrirlash</a>
-                        <a href="#" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> O'chirish</a>
+                        <a href="{% url 'students:edit' student.id %}" class="btn btn-sm"><i class="fas fa-edit"></i> Tahrirlash</a>
+                        <a href="{% url 'students:delete' student.id %}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> O'chirish</a>
                     </td>
                 </tr>
             {% empty %}
                 <tr>
-                    <td colspan="5">O'quvchilar topilmadi.</td>
+                    <td colspan="4">O'quvchilar topilmadi.</td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
+
     <div class="pagination">
-        <a href="#" id="prevPage" class="btn btn-secondary"><i class="fas fa-chevron-left"></i> Oldingi</a>
-        <span id="currentPage">1</span>
-        <a href="#" id="nextPage" class="btn btn-secondary">Keyingi <i class="fas fa-chevron-right"></i></a>
+        {% if students.has_previous %}
+            <a href="?page={{ students.previous_page_number }}&search={{ request.GET.search }}" class="btn btn-secondary"><i class="fas fa-chevron-left"></i> Oldingi</a>
+        {% endif %}
+        <span id="currentPage">{{ students.number }}</span>
+        {% if students.has_next %}
+            <a href="?page={{ students.next_page_number }}&search={{ request.GET.search }}" class="btn btn-secondary">Keyingi <i class="fas fa-chevron-right"></i></a>
+        {% endif %}
     </div>
+
 {% endblock %}
