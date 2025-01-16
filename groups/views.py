@@ -17,30 +17,21 @@ def create_group(request):
         name = request.POST.get('name')
         teacher_id = request.POST.get('teacher')
         student_ids = request.POST.getlist('students')
-
         if not name or not teacher_id:
             messages.error(request, "Guruh nomi yoki sinf rahbari tanlanmagan.")
             return redirect('groups:add')
-
-        # Teacherni olish
         try:
             teacher = Teacher.objects.get(id=teacher_id)
         except Teacher.DoesNotExist:
             messages.error(request, "Tanlangan o'qituvchi mavjud emas.")
             return redirect('groups:add')
-
-        # Group yaratish
         group = Group.objects.create(name=name, teacher=teacher)
-
-        # Agar o'quvchilar tanlangan bo'lsa, ularni qo'shing
         if student_ids:
             students = Student.objects.filter(id__in=student_ids)
             group.students.set(students)
-
         group.save()
         messages.success(request, "Guruh muvaffaqiyatli yaratildi.")
         return redirect('groups:list')
-
     teachers = Teacher.objects.all()
     students = Student.objects.all()
     ctx = {'teachers': teachers, 'students': students}
