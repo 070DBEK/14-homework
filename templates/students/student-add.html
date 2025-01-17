@@ -9,7 +9,7 @@
     {% csrf_token %}
     <div class="form-group">
         <label for="full_name">To'liq ism:</label>
-        <input type="text" id="full_name" name="full_name" value="{{ student.full_name|default:'' }}" required>
+        <input type="text" id="full_name" name="full_name" value="{{ student.full_name }}" required>
     </div>
 
     <div class="form-group">
@@ -27,24 +27,28 @@
 
     <div class="form-group">
         <label for="date_of_birth">Tug'ilgan sana:</label>
-        <input type="date" id="date_of_birth" name="date_of_birth" value="{{ student.date_of_birth|default:'' }}" required>
+        <input type="date" id="date_of_birth" name="date_of_birth" value="{{ student.date_of_birth|date:'Y-m-d' }}" required>
     </div>
 
     <div class="form-group">
         <label for="phone">Telefon:</label>
-        <input type="text" id="phone" name="phone" value="{{ student.phone|default:'' }}" required>
+        <input type="text" id="phone" name="phone" value="{{ student.phone }}" required>
     </div>
 
     <div class="form-group">
         <label for="address">Manzil:</label>
-        <input type="text" id="address" name="address" value="{{ student.address|default:'' }}" required>
+        <input type="text" id="address" name="address" value="{{ student.address }}" required>
     </div>
 
-    <div class="form-group">
-        <label for="photo">Rasm:</label>
-        <input type="file" id="photo" name="photo" accept="image/*">
-    </div>
-
+<div class="form-group">
+    <label for="photo">Rasm:</label>
+    {% if student and student.photo %}
+        <div>
+            <img src="{{ student.photo.url }}" alt="Eski rasm" style="max-width: 150px; max-height: 150px; margin-bottom: 10px;">
+        </div>
+    {% endif %}
+    <input type="file" id="photo" name="photo" accept="image/*">
+</div>
     <div class="actions">
         <button type="submit" class="btn">
             <i class="fas fa-save"></i>
