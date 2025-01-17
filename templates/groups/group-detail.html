@@ -36,7 +36,7 @@
         </div>
     </div>
     <div class="actions">
-        <a href="group-update.html" class="btn"><i class="fas fa-edit"></i> Tahrirlash</a>
-        <a href="" class="btn btn-danger"><i class="fas fa-trash"></i> O'chirish</a>
+        <a href="{% url 'groups:update' group_id %}" class="btn"><i class="fas fa-edit"></i> Tahrirlash</a>
+        <a href="{% url 'groups:delete' group.id %}" class="btn btn-danger"><i class="fas fa-trash"></i> O'chirish</a>
     </div>
 {% endblock %}

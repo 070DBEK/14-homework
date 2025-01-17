@@ -5,7 +5,16 @@
 
 {% block content %}
 
+<h1>
+    {% if teacher %}
+        Maktab CRM - Yangi o'quvchi qo'shish
+    {% else %}
+        Maktab CRM - O'quvchi ma'lumotlarini yangilash
+    {% endif %}
+</h1>
+
 <form id="createStudentForm" method="post" enctype="multipart/form-data">
+
     {% csrf_token %}
     <div class="form-group">
         <label for="full_name">To'liq ism:</label>
