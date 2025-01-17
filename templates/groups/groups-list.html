@@ -27,8 +27,8 @@
                         <td>{{ group.teacher }}</td>
                         <td>
                             <a href="{% url 'groups:detail' group.id %}" class="btn btn-sm"><i class="fas fa-eye"></i> Ko'rish</a>
-                            <a href="group-update.html?id=1" class="btn btn-sm"><i class="fas fa-edit"></i> Tahrirlash</a>
-                            <a href="{% url 'groups:delete' group.id%}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> O'chirish</a>
+                            <a href="{% url 'groups:update' group.id %}" class="btn btn-sm"><i class="fas fa-edit"></i> Tahrirlash</a>
+                            <a href="{% url 'groups:delete' group.id %}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> O'chirish</a>
                         </td>
                     </tr>
                 {% empty %}

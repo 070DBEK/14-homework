@@ -1,22 +1,34 @@
 {% extends 'base.html' %}
 
-{% block title %}Maktab CRM - Guruh yaratish{% endblock %}
+{% block title %}
+    {% if group %}
+        Maktab CRM - Guruhni yangilash
+    {% else %}
+        Maktab CRM - Guruh yaratish
+    {% endif %}
+{% endblock %}
 
 {% block content %}
 
-<h1>Guruh yaratish</h1>
+<h1>
+    {% if group %}
+        Maktab CRM - Guruhni yangilash
+    {% else %}
+        Maktab CRM - Guruh yaratish
+    {% endif %}
+</h1>
 <form id="createGroupForm" method="post">
     {% csrf_token %}
 
     <div class="form-group">
         <label for="name">Guruh nomi:</label>
-        <input type="text" id="name" name="name" placeholder="Guruh nomini kiriting" required>
+        <input type="text" id="name" name="name" placeholder="Guruh nomini kiriting" value="{{ group.name }}" required>
     </div>
 
     <div class="form-group">
         <label for="classTeacher">Sinf rahbari:</label>
         <select id="classTeacher" name="teacher" required>
-            <option value="">Sinf rahbarini tanlang</option>
+            <option value="{{ group.teacher }}">Sinf rahbarini tanlang</option>
             {% for teacher in teachers %}
                 <option value="{{ teacher.id }}">
                     {{ teacher.first_name }} {{ teacher.last_name }}
@@ -39,7 +51,13 @@
     </div>
 
     <div class="actions">
-        <button type="submit" class="btn"><i class="fas fa-save"></i> Saqlash</button>
+        <button type="submit" class="btn"><i class="fas fa-save"></i>
+            {% if group %}
+                Yangilash
+            {% else %}
+                Yaratish
+            {% endif %}
+        </button>
         <a href="{% url 'groups:list' %}" class="btn btn-secondary"><i class="fas fa-times"></i> Bekor qilish</a>
     </div>
 </form>

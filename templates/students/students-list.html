@@ -5,12 +5,14 @@
 {% block content %}
 
     <h1>O'quvchilar ro'yxati</h1>
+
     <div class="actions">
         <a href="{% url 'students:create' %}" class="btn"><i class="fas fa-plus"></i> Yangi o'quvchi qo'shish</a>
         <form method="GET" action="{% url 'students:list' %}" class="d-inline-block">
             <input type="text" name="search" id="searchStudent" placeholder="O'quvchi qidirish" class="search-input" value="{{ request.GET.search|default:'' }}">
         </form>
     </div>
+
     <table id="studentsTable">
         <thead>
             <tr>
